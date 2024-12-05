@@ -3,7 +3,7 @@
  * index -> routes -> controller -> model -> data
  */
 
-import { animeController } from "../controllers/animeController.js"
+
 import { readFile, updateAnime } from "../lib/data.js"
 
 export class AnimeModel {
@@ -16,14 +16,21 @@ export class AnimeModel {
     return animes
   }
 
+  static async getById(id) {
+    let animes = await AnimeModel.getAll()
+    return animes[id]
+  }
+
   static async createAndUpdateAnime(animes) {
     try {
       await updateAnime(AnimeModel.folder, AnimeModel.fileName, animes)
       return true
-    } catch (err) {
+    } catch (error) {
+      console.error(error)
       return false
     }
   }
+
 
 }
 
