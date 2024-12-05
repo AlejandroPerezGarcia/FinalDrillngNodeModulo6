@@ -1,0 +1,17 @@
+{
+  "name": "finaldrillingnode-alejandroperez",
+  "version": "1.0.0",
+  "description": "Animacion Japonesa",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "Alejandro Pérez García",
+  "license": "ISC",
+  "dependencies": {
+    "mime-types": "^2.1.35"
+  }
+}
