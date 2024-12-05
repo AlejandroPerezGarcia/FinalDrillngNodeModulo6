@@ -1,8 +1,16 @@
+/**
+ * index -> routes -> controller -> model -> data
+ */
+
+import { animeController } from "./controllers/animeController.js"
 import { publicController } from "./controllers/publicController.js"
 
 export const router = (req, res) => {
   const url = req.url
-  const urlParts = url.split('/').filter(part => !!part)
+  const urlParts = url.split('/').filter(part => !!part).map(part => part.split('?')[0])
+
+  let _url = new URL(req.url, `https://${req.headers.host}`)
+  let queryParams = _url.searchParams
 
   let payloadBruto = '' // @todo generar payload desde evento data
 
@@ -20,10 +28,11 @@ export const router = (req, res) => {
     }
     /**
      * Ruta API Anime
+     * localhost:4000/api/animes
      */
-    /* else if (urlParts[0] == 'api' && urlParts[1] == 'anime') {
-      userController(req, res, payloadBruto, urlParts)
-    } */
+    else if (urlParts[0] == 'api' && urlParts[1] == 'animes') {
+      animeController(req, res, payloadBruto, urlParts)
+    }
     /**
      * 404 not found
      */

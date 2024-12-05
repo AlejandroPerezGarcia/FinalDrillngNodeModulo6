@@ -1,5 +1,6 @@
 /**
  * Servidor HTTP Node
+ * index -> routes -> controller -> model -> data
  */
 
 import * as http from 'node:http'
