@@ -10,7 +10,7 @@ export const router = (req, res) => {
   const urlParts = url.split('/').filter(part => !!part).map(part => part.split('?')[0])
 
   let _url = new URL(req.url, `https://${req.headers.host}`)
-  let queryParams = _url.searchParams
+  //let queryParams = _url.searchParams
 
   let payloadBruto = '' // @todo generar payload desde evento data
 
